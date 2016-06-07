@@ -27,7 +27,7 @@ gem 'dotenv-rails'
 
 gem 'refile', require: 'refile/rails'
 gem 'refile-mini_magick'
-
+gem 'refile-s3'
 
 
 # Use ActiveModel has_secure_password

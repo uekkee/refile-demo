@@ -1,0 +1,14 @@
+<h1>User lists</h1>
+
+<table border="1">
+  <tr>
+    <th>id</th><th>name</th><th>profile_image</th>
+  </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.id %></td><td><%= user.name %></td><td><%= image_tag attachment_url(user, :profile_image, :fill, 150, 150, format: 'jpg') %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'new', action: :new %>

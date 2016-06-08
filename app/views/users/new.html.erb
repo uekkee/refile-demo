@@ -1,5 +1,5 @@
 <%= form_for @user do |f| %>
   name: <%= f.text_field :name %> <br/>
-  attachment: <%= f.attachment_field :profile_image %> <br/>
+  profile_image: <%= f.attachment_field :profile_image %> <br/>
   <%= f.submit 'submit' %>
 <% end %>

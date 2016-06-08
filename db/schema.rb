@@ -11,9 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160608073627) do
+ActiveRecord::Schema.define(version: 20160608072858) do
 
   create_table "attachments", force: :cascade do |t|
+    t.string   "type",              limit: 255, null: false
     t.string   "file_id",           limit: 255, null: false
     t.integer  "file_size",         limit: 4,   null: false
     t.string   "file_content_type", limit: 255, null: false
@@ -22,16 +23,14 @@ ActiveRecord::Schema.define(version: 20160608073627) do
     t.datetime "updated_at",                    null: false
   end
 
+  add_index "attachments", ["type"], name: "index_attachments_on_type", using: :btree
+
   create_table "users", force: :cascade do |t|
-    t.string   "name",                       limit: 64
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
-    t.string   "profile_image_id",           limit: 255
-    t.integer  "profile_image_size",         limit: 4
-    t.string   "profile_image_content_type", limit: 255
-    t.string   "profile_image_filename",     limit: 255
-    t.integer  "cover_image_id",             limit: 4
-    t.integer  "skill_sheet_id",             limit: 4
+    t.string   "name",           limit: 64
+    t.integer  "cover_image_id", limit: 4
+    t.integer  "skill_sheet_id", limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
 end

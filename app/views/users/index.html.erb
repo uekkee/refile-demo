@@ -4,19 +4,15 @@
   <tr>
     <th>id</th>
     <th>name</th>
-    <th>profile_image</th>
-    <th>profile_image_size</th>
-    <th>profile_image_content_type</th>
-    <th>profile_image_filename</th>
+    <th>cover_image</th>
+    <th>skill_sheet</th>
   </tr>
   <% @users.each do |user| %>
     <tr>
       <td><%= user.id %></td>
       <td><%= user.name %></td>
-      <td><%= image_tag attachment_url(user, :profile_image, :fill, 150, 150, format: 'jpg') %></td>
-      <td><%= user.profile_image_size %></td>
-      <td><%= user.profile_image_content_type %></td>
-      <td><%= user.profile_image_filename %></td>
+      <td><%= image_tag attachment_url(user.cover_image, :file, :fill, 150, 150, format: 'jpg') if user.cover_image.present? %></td>
+      <td><%= link_to 'download', attachment_url(user.skill_sheet, :file) if user.skill_sheet.present? %></td>
     </tr>
   <% end %>
 </table>

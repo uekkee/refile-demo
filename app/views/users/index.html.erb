@@ -4,7 +4,8 @@
   <tr>
     <th>id</th>
     <th>name</th>
-    <th>cover_image</th>
+    <th>cover_image(processed)</th>
+    <th>cover_image(original)</th>
     <th>skill_sheet</th>
   </tr>
   <% @users.each do |user| %>
@@ -12,6 +13,7 @@
       <td><%= user.id %></td>
       <td><%= user.name %></td>
       <td><%= image_tag attachment_url(user.cover_image, :file, :fill, 150, 150, format: 'jpg') if user.cover_image.present? %></td>
+      <td><%= image_tag attachment_url(user.cover_image, :file) if user.cover_image.present? %></td>
       <td><%= link_to 'download', attachment_url(user.skill_sheet, :file) if user.skill_sheet.present? %></td>
     </tr>
   <% end %>

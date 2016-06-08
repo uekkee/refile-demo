@@ -25,7 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'dotenv-rails'
 
-gem 'refile', require: 'refile/rails'
+gem 'refile', '~> 0.6.2', require: 'refile/rails'
 gem 'refile-mini_magick'
 gem 'refile-s3'
 

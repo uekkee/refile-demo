@@ -1,3 +1,5 @@
+Refile.secret_key = ENV['REFILE_SECRET_KEY']
+
 if ENV['REFILE_BACKEND'] == 'S3'
   require 'refile/s3'
 

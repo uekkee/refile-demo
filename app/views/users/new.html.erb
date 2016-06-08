@@ -1,5 +1,14 @@
 <%= form_for @user do |f| %>
   name: <%= f.text_field :name %> <br/>
   profile_image: <%= f.attachment_field :profile_image %> <br/>
+
+  <%= f.fields_for :cover_image do |cover_image| %>
+    cover_image: <%= cover_image.attachment_field :file %> <br/>
+  <% end %>
+
+  <%= f.fields_for :skill_sheet do |skill_sheet| %>
+    skill_sheet: <%= skill_sheet.attachment_field :file %> <br/>
+  <% end %>
+
   <%= f.submit 'submit' %>
 <% end %>
